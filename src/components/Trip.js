@@ -41,7 +41,7 @@ const INITIAL_VIEW_STATE = {
   latitude: 36.45,
   zoom: 10,
   minZoom: 5,
-  maxZoom: 13,
+  maxZoom: 14,
   pitch: 0,
   bearing: 0
 };
@@ -189,7 +189,7 @@ const Trip = (props) => {
       getColor: d => getColor(d, 'WALK'),
       opacity: 1,
       widthMinPixels: 5,
-      trailLength: 1,
+      trailLength: 7,
       rounded: true,
       currentTime: time,
       shadowEnabled: false,
@@ -226,22 +226,24 @@ const Trip = (props) => {
       data: TaxiPoint,
       getPosition: d => d,
       getFillColor: d => [255, 153, 51],
-      getRadius: d => 5,
+      getRadius: d => 3,
       opacity: 0.1,
       pickable: false,
+      radiusScale: 6,
       radiusMinPixels: 1,
-      radiusMaxPixels: 5,
+      radiusMaxPixels: 10,
     }),
     new ScatterplotLayer({
       id: 'bike-location',
       data: BikePoint,
       getPosition: d => d,
       getFillColor: d => [56, 253, 57],
-      getRadius: d => 5,
+      getRadius: d => 3,
       opacity: 0.1,
       pickable: false,
+      radiusScale: 6,
       radiusMinPixels: 1,
-      radiusMaxPixels: 5,
+      radiusMaxPixels: 10,
     })
   ];
 
