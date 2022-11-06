@@ -176,7 +176,7 @@ const Trip = (props) => {
       getColor: d => getColor(d, 'BIKE'),
       opacity: 1,
       widthMinPixels: 5,
-      trailLength: 1,
+      trailLength: 1.5,
       rounded: true,
       currentTime: time,
       shadowEnabled: false,
