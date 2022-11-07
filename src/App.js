@@ -6,14 +6,11 @@ import Trip from './components/Trip';
 import Splash from './components/Splash';
 import './css/app.css';
 
-// const axios = require('axios');
-
 const getData = dataName => {
   const res = axios.get(`https://raw.githubusercontent.com/HNU209/MaaS/main/src/data/${dataName}.json`);
   const result = res.then(r => r.data);
   return result;
 }
-
 
 const App = () => {
   const minTime = 420;
@@ -34,7 +31,8 @@ const App = () => {
         'BikeTrip': await getData('bike_trip'),
         'FootTrip': await getData('foot_trip'),
         'TaxiPoint': await getData('taxi_point'),
-        'TaxiTrip': await getData('taxi_trip')
+        'TaxiTrip': await getData('taxi_trip'),
+        'polygons': await getData('polygon'),
       };
 
       if (resData) {

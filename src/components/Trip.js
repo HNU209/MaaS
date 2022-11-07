@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Map } from 'react-map-gl';
 import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
 import { TripsLayer } from '@deck.gl/geo-layers';
-import { PathLayer, ScatterplotLayer, IconLayer } from '@deck.gl/layers';
+import { PathLayer, ScatterplotLayer, IconLayer, PolygonLayer } from '@deck.gl/layers';
 import DeckGL from '@deck.gl/react';
 import '../css/trip.css';
 import BusStopPNG from '../image/bus-stop.png';
@@ -69,7 +69,6 @@ const getColor = (data, type) => {
     } else if (data.vendor === 0) {
       return [23, 184, 190];
     }
-    // return [255, 153, 51]; // 주황색
   } else if (type === 'BIKE') {
     return [255, 255, 0]; // 노란색
   } else if (type === 'WALK') {
@@ -113,6 +112,7 @@ const Trip = (props) => {
   const minTime = props.minTime;
   const maxTime = props.maxTime;
 
+  const polygons = props.data.polygons;
   const BRT = props.data.BRT;
   const BusStop = props.data.BusStop;
   const B1Trip = props.data.B1Trip;
@@ -145,6 +145,17 @@ const Trip = (props) => {
   }, []);
 
   const layers = [
+    new PolygonLayer({
+      id: 'polygon',
+      data: polygons,
+      pickable: false,
+      filled: true,
+      lineWidthMinPixels: 2,
+      getPolygon: d => d.geometry,
+      getFillColor: d => d.geometry ? [255, 255, 255, 1] : [255, 255, 255, 0],
+      getLineColor: [192, 192, 192],
+      getLineWidth: 1
+    }),
     new PathLayer({
       id: 'brt',
       data: BRT,
@@ -213,12 +224,12 @@ const Trip = (props) => {
       pickable: false,
       iconAtlas: BusStopPNG,
       iconMapping: ICON_MAPPING,
-      sizeMinPixels: 15,
-      sizeMaxPixels: 15,
-      sizeScale: 2,
+      sizeMinPixels: 20,
+      sizeMaxPixels: 20,
+      sizeScale: 5,
       getIcon: d => d[2] > 0 ? 'marker1' : 'marker2',
       getPosition: d => [d[0], d[1]],
-      getSize: d => 5,
+      getSize: d => 10,
       getColor: d => [255, 255, 0]
     }),
     new ScatterplotLayer({
