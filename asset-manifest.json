@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/MaaS/static/css/main.eed784c2.css",
-    "main.js": "/MaaS/static/js/main.a0cb6e36.js",
+    "main.js": "/MaaS/static/js/main.5c7f4812.js",
     "static/js/483.20a2057e.chunk.js": "/MaaS/static/js/483.20a2057e.chunk.js",
     "static/js/787.22224f1e.chunk.js": "/MaaS/static/js/787.22224f1e.chunk.js",
+    "static/media/legend.png": "/MaaS/static/media/legend.18066aaa1d60d06e9577.png",
     "service-worker.js": "/MaaS/service-worker.js",
-    "static/media/legend.png": "/MaaS/static/media/legend.18a41037abc7b2d56b5f.png",
     "static/media/bus-stop.png": "/MaaS/static/media/bus-stop.ce0015873e38112afb89.png",
     "index.html": "/MaaS/index.html",
     "main.eed784c2.css.map": "/MaaS/static/css/main.eed784c2.css.map",
-    "main.a0cb6e36.js.map": "/MaaS/static/js/main.a0cb6e36.js.map",
+    "main.5c7f4812.js.map": "/MaaS/static/js/main.5c7f4812.js.map",
     "483.20a2057e.chunk.js.map": "/MaaS/static/js/483.20a2057e.chunk.js.map",
     "787.22224f1e.chunk.js.map": "/MaaS/static/js/787.22224f1e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.eed784c2.css",
-    "static/js/main.a0cb6e36.js"
+    "static/js/main.5c7f4812.js"
   ]
 }
