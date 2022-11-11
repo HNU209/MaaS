@@ -124,6 +124,8 @@ const Trip = (props) => {
   const TaxiPoint = currData(props.data.TaxiPoint, time);
   const TaxiTrip = props.data.TaxiTrip;
 
+  // console.log(UpBRT.trip);
+
   const BusStopTotal = getBusStopWaiting(BusStop, BusWaitingPoint, time);
   
   const [animationFrame, setAnimationFrame] = useState('');
@@ -163,7 +165,7 @@ const Trip = (props) => {
       pickable: true,
       widthScale: 1,
       widthMinPixels: 2,
-      getPath: d => d.path,
+      getPath: d => d,
       getColor: d => [255, 255, 255], // 흰색
       getWidth: d => 1
     }),
