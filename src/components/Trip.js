@@ -159,7 +159,7 @@ const Trip = (props) => {
     }),
     new PathLayer({
       id: 'brt-up',
-      data: UpBRT,
+      data: UpBRT.trip,
       pickable: true,
       widthScale: 1,
       widthMinPixels: 2,
@@ -169,7 +169,7 @@ const Trip = (props) => {
     }),
     new PathLayer({
       id: 'brt-down',
-      data: DownBRT,
+      data: DownBRT.trip,
       pickable: true,
       widthScale: 1,
       widthMinPixels: 2,
