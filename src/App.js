@@ -24,8 +24,6 @@ const App = () => {
     async function getFetchData() {
       const resData = {
         'BRT': await getData('brt'),
-        'UpBRT': await getData('up_b1_brt'),
-        'DownBRT': await getData('down_b1_brt'),
         'BusStop': await getData('bus_stop'),
         'B1Trip': await getData('B1_trip'),
         'BusWaitingPoint': await getData('bus_waiting_point'),

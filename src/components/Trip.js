@@ -113,8 +113,7 @@ const Trip = (props) => {
   const maxTime = props.maxTime;
 
   const polygons = props.data.polygons;
-  const UpBRT = props.data.UpBRT;
-  const DownBRT = props.data.DownBRT;
+  const BRT = props.data.BRT;
   const BusStop = props.data.BusStop;
   const B1Trip = props.data.B1Trip;
   const BusWaitingPoint = props.data.BusWaitingPoint;
@@ -124,8 +123,6 @@ const Trip = (props) => {
   const TaxiPoint = currData(props.data.TaxiPoint, time);
   const TaxiTrip = props.data.TaxiTrip;
   
-  // console.log(DownBRT.trip);
-
   const BusStopTotal = getBusStopWaiting(BusStop, BusWaitingPoint, time);
   
   const [animationFrame, setAnimationFrame] = useState('');
@@ -159,23 +156,13 @@ const Trip = (props) => {
       getLineColor: [192, 192, 192],
       getLineWidth: 1
     }),
-    // new PathLayer({
-    //   id: 'brt-up',
-    //   data: UpBRT.trip,
-    //   pickable: true,
-    //   widthScale: 1,
-    //   widthMinPixels: 2,
-    //   getPath: d => [d[0], d[1]],
-    //   getColor: d => [255, 255, 255], // 흰색
-    //   getWidth: d => 1
-    // }),
     new PathLayer({
-      id: 'brt-down',
-      data: DownBRT,
+      id: 'brt',
+      data: BRT,
       pickable: true,
       widthScale: 1,
       widthMinPixels: 2,
-      getPath: d => {console.log(d.trip)},
+      getPath: d => d.path,
       getColor: d => [255, 255, 255], // 흰색
       getWidth: d => 1
     }),
