@@ -113,7 +113,8 @@ const Trip = (props) => {
   const maxTime = props.maxTime;
 
   const polygons = props.data.polygons;
-  const BRT = props.data.BRT;
+  const UpBRT = props.data.UpBRT;
+  const DownBRT = props.data.DownBRT;
   const BusStop = props.data.BusStop;
   const B1Trip = props.data.B1Trip;
   const BusWaitingPoint = props.data.BusWaitingPoint;
@@ -157,8 +158,18 @@ const Trip = (props) => {
       getLineWidth: 1
     }),
     new PathLayer({
-      id: 'brt',
-      data: BRT,
+      id: 'brt-up',
+      data: UpBRT,
+      pickable: true,
+      widthScale: 1,
+      widthMinPixels: 2,
+      getPath: d => d.path,
+      getColor: d => [255, 255, 255], // 흰색
+      getWidth: d => 1
+    }),
+    new PathLayer({
+      id: 'brt-down',
+      data: DownBRT,
       pickable: true,
       widthScale: 1,
       widthMinPixels: 2,
