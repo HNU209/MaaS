@@ -64,9 +64,9 @@ const getColor = (data, type) => {
   if (type === 'B1') {
     return [255, 0, 0];
   } else if (type === 'TAXI') {
-    if (data.vendor === 1) {
+    if (data.vendor === 0) {
       return [253, 128, 93];
-    } else if (data.vendor === 0) {
+    } else if (data.vendor === 1) {
       return [23, 184, 190];
     }
   } else if (type === 'BIKE') {
