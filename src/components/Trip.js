@@ -122,7 +122,7 @@ const Trip = (props) => {
   const FootTrip = props.data.FootTrip;
   const TaxiPoint = currData(props.data.TaxiPoint, time);
   const TaxiTrip = props.data.TaxiTrip;
-
+  
   const BusStopTotal = getBusStopWaiting(BusStop, BusWaitingPoint, time);
   
   const [animationFrame, setAnimationFrame] = useState('');
