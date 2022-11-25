@@ -5,7 +5,6 @@ import { TripsLayer } from '@deck.gl/geo-layers';
 import { PathLayer, ScatterplotLayer, IconLayer, PolygonLayer } from '@deck.gl/layers';
 import DeckGL from '@deck.gl/react';
 import '../css/trip.css';
-import BusStopPNG from '../image/bus-stop.png';
 import legend from '../image/legend.png';
 
 const ambientLight = new AmbientLight({
@@ -102,8 +101,7 @@ const getBusStopWaiting = (bus_stop, data, time) => {
 }
 
 const ICON_MAPPING = {
-  marker1: {x: 0, y: 0, width: 512, height: 512, mask: true},
-  marker2: {x: 0, y: 0, width: 512, height: 512, mask: false}
+  marker: {x: 0, y: 0, width: 128, height: 128, mask: true},
 };
 
 const Trip = (props) => {
@@ -222,15 +220,15 @@ const Trip = (props) => {
       id: 'bus-stop',
       data: BusStopTotal,
       pickable: false,
-      iconAtlas: BusStopPNG,
+      iconAtlas: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png',
       iconMapping: ICON_MAPPING,
-      sizeMinPixels: 20,
+      sizeMinPixels: 10,
       sizeMaxPixels: 20,
       sizeScale: 5,
-      getIcon: d => d[2] > 0 ? 'marker1' : 'marker2',
+      getIcon: d => 'marker',
       getPosition: d => [d[0], d[1]],
-      getSize: d => 10,
-      getColor: d => [255, 255, 0]
+      getSize: d => 7,
+      getColor: d => d[2] > 0 ? [255, 255, 0] : [255, 0, 0]
     }),
     new ScatterplotLayer({
       id: 'taxi-location',
